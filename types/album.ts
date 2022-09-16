@@ -1,1 +1,5 @@
-export type Album = {};
+export type Album = {
+  id: number;
+  title: string;
+  userId: number;
+};

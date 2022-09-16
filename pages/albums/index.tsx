@@ -1,5 +1,6 @@
 import { GetServerSideProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
+import AlbumList from '../../components/AlbumList';
 import MainLayout from '../../layouts/MainLayout';
 import { Album } from '../../types/album';
 
@@ -15,7 +16,7 @@ const AlbumsPage: NextPage<AlbumsPageProps> = ({ albums }) => {
   return (
     <MainLayout title="Albums page!">
       <h1>ALBUMS PAGE!!!</h1>
-      {/* <AlbumList albums={albums} /> TODO: */}
+      <AlbumList albums={albums} />
     </MainLayout>
   );
 };
