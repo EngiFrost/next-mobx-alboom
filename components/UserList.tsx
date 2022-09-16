@@ -1,28 +1,21 @@
-import { useEffect, useState } from 'react';
+import { NextPage } from 'next';
 import styles from '../styles/UserList.module.scss';
 import { User } from '../types/user';
 import UserListItem from './UserListItem';
 
-// TODO: Move to SSG: getStaticProps
-const fetchUsers = async (): Promise<User[]> => {
-  const response = await fetch('https://jsonplaceholder.typicode.com/users').then((res) => res.json());
-  console.log(response);
-  return response;
+type UserListProps = {
+  users: User[];
 };
 
-const UserList = () => {
-  const [users, setUsers] = useState<User[]>([]);
-  useEffect(() => {
-    // NOTE: the right way to use async in useEffect
-    (async () => {
-      const users = await fetchUsers();
-      setUsers(users);
-    })();
-  }, []);
-
-  if (!users.length) {
-    return <div className={styles.empty}>No users fetched</div>;
-  }
+const UserList: NextPage<UserListProps> = ({ users }) => {
+  // const [users, setUsers] = useState<User[]>([]);
+  // useEffect(() => {
+  //   // NOTE: the right way to use async in useEffect
+  //   (async () => {
+  //     const users = await fetchUsers();
+  //     setUsers(users);
+  //   })();
+  // }, []);
 
   return (
     <div className={styles.list}>
