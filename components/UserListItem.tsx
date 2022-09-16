@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 import { User } from '../types/user';
 
@@ -6,7 +7,9 @@ type UserListItemProps = {
 };
 
 const UserListItem = ({ user }: UserListItemProps) => {
-  return <div>UserListItem {user.id}</div>;
+  const router = useRouter();
+
+  return <div onClick={() => router.push(`/users/${user.id}`)}>UserListItem {user.id}</div>;
 };
 
 export default UserListItem;
