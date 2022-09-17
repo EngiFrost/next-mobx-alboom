@@ -6,6 +6,9 @@ type AlbumPageProps = {
   album: Album;
 };
 
+// TODO: album pics crud
+// TODO: album crud
+
 const Album: NextPage<AlbumPageProps> = ({ album }) => {
   return (
     <MainLayout title="Album page!">
