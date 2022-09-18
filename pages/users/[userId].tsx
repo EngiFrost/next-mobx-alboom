@@ -37,6 +37,7 @@ const User: NextPage<UserPageProps> = ({ user }) => {
 
 export default User;
 
+// TODO: handle users/91 -- ERROR!
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const user: User = await fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`).then((res) => res.json());
   return user
