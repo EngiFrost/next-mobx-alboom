@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import MainLayout from '../../layouts/MainLayout';
 import { User } from '../../types/user';
 import styles from '../../styles/User.module.scss';
+import { makeRow } from '../../utils/makeRow';
 
 type UserPageProps = {
   user: User;
@@ -47,13 +48,4 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     : {
         notFound: true,
       };
-};
-
-const makeRow = (title: string, content: string) => {
-  return (
-    <div>
-      <span className={styles.rowTitle}>{title}</span>
-      {`: ${content}`}
-    </div>
-  );
 };

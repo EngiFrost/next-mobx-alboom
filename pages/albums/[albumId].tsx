@@ -1,6 +1,7 @@
 import { GetServerSideProps, NextPage } from 'next';
 import MainLayout from '../../layouts/MainLayout';
 import { Album } from '../../types/album';
+import { makeRow } from '../../utils/makeRow';
 
 type AlbumPageProps = {
   album: Album;
@@ -10,11 +11,7 @@ type AlbumPageProps = {
 // TODO: album crud
 
 const Album: NextPage<AlbumPageProps> = ({ album }) => {
-  return (
-    <MainLayout title="Album page!">
-      <div>Album title: {album.title}</div>
-    </MainLayout>
-  );
+  return <MainLayout title="Album page!">{makeRow('album title', album.title)}</MainLayout>;
 };
 
 export default Album;
