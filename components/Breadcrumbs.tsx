@@ -2,7 +2,7 @@ import { observer } from 'mobx-react-lite';
 import { useRouter } from 'next/router';
 import { breadcrumbsStore } from '../store/breadcrumbsStore';
 import { Breadcrumbs as MUIBreadcrumbs, Link, Typography } from '@mui/material';
-import styles from '../styles/Breadcrumbs.module.scss'; //TODO:
+import styles from '../styles/Breadcrumbs.module.scss';
 
 const Breadcrumbs = observer(() => {
   const { asPath } = useRouter();

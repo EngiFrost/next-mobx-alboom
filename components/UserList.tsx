@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
-import styles from '../styles/UserList.module.scss';
 import { User } from '../types/user';
 import UserListItem from './UserListItem';
+import styles from '../styles/UserList.module.scss';
 
 type UserListProps = {
   users: User[];

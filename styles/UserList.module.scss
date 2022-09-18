@@ -1,7 +1,18 @@
-.empty { // FIXME: isn't used
-  font-size: 36px;
-  line-height: 36px;
-  font-weight: bold;
+.list {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-// TODO: .list
+.item {
+  padding: 10px;
+  width: fit-content;
+
+  &:hover {
+    cursor: pointer;
+
+    .name {
+      text-decoration: underline;
+    }
+  }
+}
