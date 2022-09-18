@@ -1,0 +1,20 @@
+.userCard {
+  padding: 20px;
+  width: fit-content;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  margin: 20px auto 0;
+  width: 100%;
+}
+
+.rowTitle {
+  text-transform: capitalize;
+  font-weight: bold;
+}

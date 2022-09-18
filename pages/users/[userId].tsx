@@ -1,8 +1,9 @@
-import { Button } from '@mui/material';
+import { Button, Card } from '@mui/material';
 import { GetServerSideProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import MainLayout from '../../layouts/MainLayout';
 import { User } from '../../types/user';
+import styles from '../../styles/User.module.scss';
 
 type UserPageProps = {
   user: User;
@@ -11,10 +12,25 @@ type UserPageProps = {
 const User: NextPage<UserPageProps> = ({ user }) => {
   const router = useRouter();
 
+  const clickHandler = () => router.push({ pathname: '/albums', query: { userId: user.id } });
+
   return (
     <MainLayout title="User page!">
-      <div>Username: {user.name}</div>
-      <Button onClick={() => router.push({ pathname: '/albums', query: { userId: user.id } })}>User albums</Button>
+      <Card className={styles.userCard}>
+        <div className={styles.userInfo}>
+          {makeRow('name', user.name)}
+          {makeRow('username', user.username)}
+          {makeRow('email', user.email)}
+          {makeRow('phone', user.phone)}
+          {makeRow('website', user.website)}
+          {makeRow('company', user.name)}
+          {makeRow('address', `${user.address.city}, ${user.address.street}, ${user.address.suite}`)}
+        </div>
+
+        <Button className={styles.btn} onClick={clickHandler}>
+          User albums
+        </Button>
+      </Card>
     </MainLayout>
   );
 };
@@ -30,4 +46,13 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     : {
         notFound: true,
       };
+};
+
+const makeRow = (title: string, content: string) => {
+  return (
+    <div>
+      <span className={styles.rowTitle}>{title}</span>
+      {`: ${content}`}
+    </div>
+  );
 };
