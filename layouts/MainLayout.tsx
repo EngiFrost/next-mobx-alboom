@@ -14,9 +14,10 @@ const MainLayout = ({ children, title }: MainLayoutProps) => {
         <title>{title}</title>
       </Head>
 
-      <Breadcrumbs />
-
-      <Container>{children}</Container>
+      <Container>
+        <Breadcrumbs />
+        {children}
+      </Container>
     </>
   );
 };
